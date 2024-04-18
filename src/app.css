@@ -1,0 +1,9 @@
+body{
+    background-color: rgb(230,230,230);
+}
+
+*{
+    border-radius: 12px;
+    padding: 4px;
+    font-family: 'Poppins', 'sans-serif';
+}
