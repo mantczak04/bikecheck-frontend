@@ -33,9 +33,10 @@
 
 <style>
     .main-container{
+        margin-top: 20px;
         margin-left: auto;
         margin-right: auto;
-        width: 920px;
+        width: 820px;
     }
 
     .mid-navbar{
