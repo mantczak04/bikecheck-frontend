@@ -26,7 +26,9 @@
                 <strong>{athlete.fullName}</strong>
             </a>
             <div class="buttons">
-                <button class="update">update</button>
+                <a href="/manage/{athlete.id}">
+                    <button class="update">update</button>
+                </a>
                 <button class="delete" on:click={() => deleteAthlete(athlete.id)}>delete</button>
             </div>
         </div>
