@@ -7,3 +7,13 @@ body{
     padding: 4px;
     font-family: 'Poppins', 'sans-serif';
 }
+
+button{
+    border: 1px transparent;
+    background-color: lightblue;
+}
+
+button:hover{
+    cursor: pointer;
+    filter: contrast(70%);
+}

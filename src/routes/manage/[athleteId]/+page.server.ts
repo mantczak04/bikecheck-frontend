@@ -18,10 +18,14 @@ export const actions = {
         const formData = await request.formData();
         const sectionName = formData.get('sectionName');
         const itemNames: string[] = formData.getAll('items[]').map(item => item.toString());
+        const parts: string[] = formData.getAll('parts[]').map(part => part.toString());
+        const images: string[] = formData.getAll('images[]').map(image => image.toString());
 
-        const items: Item[] = itemNames.map(name => ({
+        const items: Item[] = itemNames.map( (name, index) => ({
             name,
-            amazonUrl: 'https://www.amazon.com/s?k='.concat(name.split(' ').join('+'))
+            amazonUrl: 'https://www.amazon.com/s?k='.concat(name.split(' ').join('+')),
+            part: parts[index],
+            imageUrl: images[index]
         }))
         
         const section = {

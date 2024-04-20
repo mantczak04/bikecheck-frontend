@@ -1,5 +1,8 @@
-<script>
+<script lang="ts">
     export let data;
+
+    let country: string = data.athlete.country;
+    country = country.split('_').join(' ');
 
     console.log(data.athlete.imageUrl)
 </script>
@@ -15,7 +18,7 @@
         <h1 class='full-name'>{data.athlete.fullName}</h1>
 
         <div class="top-side">
-            <p class='country'>Country : {data.athlete.country}</p>
+            <p class='country'>Country : {country}</p>
             <p class='birthday'>Birthday : {data.athlete.birthDate}</p>
         </div>
 
@@ -33,7 +36,12 @@
         {#if data.athlete.sections}
             {#each section.items as item}
             <div class="item-card">
-                <p>{item.name}</p>
+                <strong>{item.part}</strong>
+                
+                <a href="{item.amazonUrl}" class="image-wrapper">
+                    <img src="{item.imageUrl}" class='item-image'>
+                </a>
+                <p class="item-name">{item.name}</p>
             </div>
             {/each}
         {:else}
@@ -48,6 +56,28 @@
 
 <style>
 
+    .image-wrapper{
+        display: inline-block;
+        overflow: hidden;
+    }
+
+    .item-image{
+        height: 174px;
+        width: 174px;
+        transform: scale(1.2);
+        object-fit: cover;
+    }
+
+    .item-image:hover{
+        transform: scale(1.5);
+        transition: transform .2s;
+    }
+
+    .item-name{
+     padding-top: 0px;
+     font-size: 18px;
+    }
+
     .section{
         margin-top: 20px;
         display: flex;
@@ -59,7 +89,6 @@
         height: 244px;
         margin: 0px;
         display: flex;
-        justify-content: center;
         align-items: center;
         text-align: center;
         -webkit-box-shadow: 8px 8px 10px -10px rgba(66, 68, 90, 1);
