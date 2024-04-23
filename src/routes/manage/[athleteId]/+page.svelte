@@ -31,7 +31,7 @@
     {#each athlete.sections as section}
         <div class="section-card">
             <h3>{section.name}</h3>
-            <button class='update-button'>Update</button>
+            <button class='update-button'><a href="/manage/{athlete.id}/sections/{section.id}">Update</a></button>
             <button class='delete-button' on:click={() => deleteSection(section.id)}>Delete</button>
         </div>
     {/each}

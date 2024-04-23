@@ -31,8 +31,8 @@
 
 {#if data.athlete.sections[0] }
 {#each data.athlete.sections as section}
+<h1>{section.name}</h1>
 <div class="section">
-    <h1>{section.name}</h1>
         {#if data.athlete.sections}
             {#each section.items as item}
             <div class="item-card">
@@ -81,6 +81,7 @@
     .section{
         margin-top: 20px;
         display: flex;
+        gap: 10px;
     }
 
     .item-card{
