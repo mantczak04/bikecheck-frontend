@@ -4,6 +4,10 @@
 
 </script>
 
+<!-- <div class="search-container">
+    <input type="text" class='search-input' placeholder="Search for a rider">
+    <button class='search-button'>Search</button>
+</div> -->
 
 <div class="athletes-section">
     {#each athletes as athlete }
@@ -23,12 +27,20 @@
 
 
 <style>
+
+
+    .search-input{
+        width: 90%;
+        border: 2px solid transparent;
+    }
     .athletes-section{
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
         gap: 15px;
         align-items: center;
         justify-content: center;
+        background-color: red;
     }
 
     .athlete-card{
@@ -59,5 +71,13 @@ box-shadow: 8px 8px 10px -10px rgba(66, 68, 90, 1);
     .avatar{
         width: 80%;
         border-radius: 50%;
+    }
+
+    
+@media screen {
+        .athletes-section{
+            width: 90vw;
+            overflow-x: hidden;
+        }
     }
 </style>

@@ -31,7 +31,7 @@
 
 {#if data.athlete.sections[0] }
 {#each data.athlete.sections as section}
-<h1>{section.name}</h1>
+<h1 class='section-name'>{section.name}</h1>
 <div class="section">
         {#if data.athlete.sections}
             {#each section.items as item}
@@ -82,6 +82,12 @@
         margin-top: 20px;
         display: flex;
         gap: 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .section-name{
+        text-align: center;
     }
 
     .item-card{
@@ -129,4 +135,66 @@
         width: 290px;
         border-radius: 50%;
     }
+
+@media screen and (max-width: 767px) {
+
+.athlete-card{
+    width: 90vw;
+    background-color: white;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.avatar{
+    width: 60%;
+}
+
+.left-side{
+        text-align: center;
+}
+
+.right-side{
+    text-align: center;
+    margin-top: -20px;
+}
+
+.top-side{
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-name{
+    width: 90vw;
+}
+
+.section{
+    width: 90vw;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item-card{
+    width: 40vw;
+    height: 232px;
+}
+
+.image-wrapper{
+    width: 90%;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.item-image{
+    height: auto;
+    width: 90%;
+    transform: scale(1.2);
+    object-fit: cover;
+}
+
+}
 </style>

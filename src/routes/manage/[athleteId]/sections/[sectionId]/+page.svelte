@@ -2,10 +2,24 @@
     export let data;
     const {section} = data;
 
-    let view: boolean = false;
 
-    function changeView(): void{
-        view = !view;
+async function handleSubmit(event: Event, item: { id: string }) {
+        event.preventDefault();
+
+        const formData = new FormData(event.target as HTMLFormElement);
+        const name = formData.get('name');
+        const imageUrl = formData.get('imageUrl');
+        const part = formData.get('part');
+
+        const response = await fetch(`http://localhost:8080/api/v1/items/${item.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, imageUrl, part })
+        });
+
+        const result = await response.json();
     }
 
 </script>
@@ -16,16 +30,17 @@
 
     <div class="item-card">
 
-        <form method="PUT" class='item-form'>
+        <form on:submit|preventDefault={event => handleSubmit(event, item)} class='item-form'>
+
             <label for="part">
                 <span>Part</span>
             </label>
-            <input type="text" name="part" value={item.part}>
+            <input type="text" name="part" value={item.part} required>
 
             <label for="name">
                 <span>Name</span>
             </label>
-            <input type="text" name="name" value={item.name}>
+            <input type="text" name="name" value={item.name} required>
 
             <label for="imageUrl">
                 <span>Image</span>

@@ -7,23 +7,3 @@ export const load = async({fetch, params}) => {
         section
     }
 }
-
-
-
-export const actions = {
-    default: async({request, params}) => {
-        const formData = await request.formData();
-        const name = formData.get('name');
-        const imageUrl = formData.get('imageUrl');
-        const part = formData.get('part');
-
-        const item = {
-            name,
-            imageUrl,
-            part
-        }
-
-    }
-    
-    
-}
